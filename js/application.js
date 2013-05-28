@@ -1,27 +1,4 @@
-var SERVER_URL = 'http://localhost:3000';
-
-$('a[data-toggle="tab"]').on('shown', function(e) {
-    var target = $(e.target).attr('href');
-    console.log(target);
-    switch (target) {
-        case "#news":
-
-            break
-        case "#movies":
-            load_data(SERVER_URL + '/movies.json', display_table);
-            break
-        case "#musics":
-            load_data(SERVER_URL + '/musics.json', display_table);
-            break
-        default:
-            console.log('aaaa');
-    }
-    //e.relatedTarget // previous tab
-});
-
-$('body').on('click', 'a.item', function(event) {
-
-});
+var SERVER_URL = 'http://mint-vmware:3000';
 
 function display_table(data) {
     var out = '<table class="table">';
@@ -69,7 +46,6 @@ function carousel_init(selector) {
 }
 
 function load_thumb(selector) {
-    var out = "";
     //load picture
     load_data(SERVER_URL + '/pictures.json', function(data) {
         //load picture items
@@ -87,5 +63,26 @@ load_thumb('#carousel ul');
 //    carousel_init('#carousel');
 //});
 $(document).ready(function() {
-    
+	$('a[data-toggle="tab"]').on('shown', function(e) {
+	    var target = $(e.target).attr('href');
+	    console.log(target);
+	    switch (target) {
+	        case "#news":
+	            break;
+	        case "#movies":
+	            load_data(SERVER_URL + '/movies.json', display_table);
+	            break;
+	        case "#musics":
+	            load_data(SERVER_URL + '/musics.json', display_table);
+	            break;
+	        default:
+	            console.log('aaaa');
+	    }
+	    //e.relatedTarget // previous tab
+	});
+
+	$('body').on('click', 'a.item', function(event) {
+		var url = $(event.target).data('href');
+		load_data(url, display_table);
+	});	
 });
