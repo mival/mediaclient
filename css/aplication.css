@@ -1,0 +1,31 @@
+/* 
+    Document   : aplication
+    Created on : 27.5.2013, 17:32:53
+    Author     : honza
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.jcarousel {
+    position: relative;
+    overflow: hidden;
+    /* You need at least a height, adjust this to your needs */
+    height: 180px;
+    width: 100%;
+}
+
+.jcarousel ul {
+    width: 20000em;
+    position: absolute;
+    list-style: none;
+}
+
+.jcarousel li {
+    float: left;
+    padding: 0 5px;
+    width: 130px;
+}
+.control {
+    vertical-align: central;
+    
+}
